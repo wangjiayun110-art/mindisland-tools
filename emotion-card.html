@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽情绪卡 | 心屿 MindIsland</title>
+    <meta name="description" content="抽情绪卡：免费抽卡，不用注册。点一下抽一张，十连抽一次抽十张；每张卡都是一种真实的情绪，带一句它常有的样子和一个可以先试试的小做法。抽到的卡收进图鉴，存在你的浏览器里。">
+    <link rel="canonical" href="https://www.790221.xyz/emotion-card.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="抽情绪卡 | 心屿 MindIsland">
+    <meta property="og:description" content="不知道今天心里是什么，就让卡来说。免费抽卡，不用注册；每张卡都是一种情绪，带一个可以先试试的小做法。">
+    <meta property="og:url" content="https://www.790221.xyz/emotion-card.html">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="stylesheet" href="tailwind-compiled.css">
+    <style>
+        /* 主题变量（与工具箱页一致） */
+        :root, [data-theme="blue"] {
+            --bg-warm: #F7F9FB;
+            --sage: #456179;
+            --sage-light: #E2EAF1;
+            --ink: #25303A;
+        }
+        [data-theme="honey"] {
+            --bg-warm: #FDF9F2;
+            --sage: #B06A2C;
+            --sage-light: #F6E9D2;
+            --ink: #3A2E22;
+        }
+        [data-theme="bean"] {
+            --bg-warm: #FBF7F5;
+            --sage: #9C565C;
+            --sage-light: #F2E3E3;
+            --ink: #352A2C;
+        }
+        [data-theme="matcha"] {
+            --bg-warm: #F6FAF3;
+            --sage: #5A7D4F;
+            --sage-light: #E4EFE0;
+            --ink: #2A3328;
+        }
+        [data-theme="dark"] {
+            --bg-warm: #121417;
+            --sage: #8FB0CC;
+            --sage-light: #232B35;
+            --ink: #E8EBEE;
+        }
+        [data-theme="dark"] .bg-white { background-color: #1D2127; }
+        [data-theme="dark"] .bg-stone-100 { background-color: #1A1D21; }
+        [data-theme="dark"] .bg-stone-50 { background-color: #191C20; }
+        [data-theme="dark"] .text-stone-800 { color: #EDEFF2; }
+        [data-theme="dark"] .text-stone-700 { color: #D8DCE1; }
+        [data-theme="dark"] .text-stone-600 { color: #B7BEC6; }
+        [data-theme="dark"] .text-stone-500 { color: #98A1AA; }
+        [data-theme="dark"] .text-stone-400 { color: #7C858F; }
+        [data-theme="dark"] .border-stone-200 { border-color: #333A42; }
+        [data-theme="dark"] .border-stone-100 { border-color: #262B31; }
+        [data-theme="dark"] .border-stone-300 { border-color: #454E58; }
+
+        body { background-color: var(--bg-warm); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+        @media (max-width: 768px) {
+            body { font-size: 17px; }
+            main { padding-left: 1rem; padding-right: 1rem; }
+            section { padding: 1.25rem !important; }
+        }
+        /* 抽卡 */
+        .ecard { animation: pop .35s ease both; }
+        @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.96); } to { opacity: 1; transform: none; } }
+        @keyframes flash { 0% { box-shadow: 0 0 0 0 rgba(201,162,39,.7); } 100% { box-shadow: 0 0 0 18px rgba(201,162,39,0); } }
+        .ecard.r-SSR { animation: pop .35s ease both, flash .8s ease-out 2; }
+    </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "抽情绪卡 | 心屿 MindIsland", "description": "抽情绪卡：免费抽卡，不用注册；每张卡都是一种真实的情绪，带一句它常有的样子和一个可以先试试的小做法。", "url": "https://www.790221.xyz/emotion-card.html", "isPartOf": {"@type": "WebSite", "name": "心屿 MindIsland", "url": "https://www.790221.xyz/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.790221.xyz/"}, {"@type": "ListItem", "position": 2, "name": "抽情绪卡"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "抽情绪卡要钱吗？要注册吗？", "acceptedAnswer": {"@type": "Answer", "text": "不要钱，也不用注册。点一下就能抽，抽到的卡存在你的浏览器里。"}}, {"@type": "Question", "name": "抽到的卡存在哪里？", "acceptedAnswer": {"@type": "Answer", "text": "存在你这台设备浏览器的本地存储里。换设备、换浏览器，或者清掉浏览器数据，图鉴就会丢，需要重新抽。"}}, {"@type": "Question", "name": "稀有度是怎么分的？", "acceptedAnswer": {"@type": "Answer", "text": "R 是日常情绪，抽到概率约 70%；SR 是心里卡住的情绪，约 25%；SSR 是很难说出口的情绪，约 5%。十连抽至少出一张 SR 以上。卡上的小做法只是一般性的建议，不是诊断。}}]}</script>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 bg-bgWarm border-b border-stone-200">
+        <div class="max-w-5xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="index.html" class="text-3xl font-bold tracking-wider text-sage flex items-center gap-2">
+                <span class="logo-emoji">🌙</span> 心屿 MindIsland
+            </a>
+            <nav class="flex space-x-6 text-lg font-medium text-stone-600">
+                <a href="index.html" class="hover:text-sage transition">首页</a>
+                <a href="toolkit.html" class="hover:text-sage transition">自助工具箱</a>
+            </nav>
+            <div class="flex items-center gap-1.5 ml-3">
+                    <button onclick="setTheme('blue')" data-theme="blue" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#456179" title="雾蓝夜话"></button>
+                    <button onclick="setTheme('honey')" data-theme="honey" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#B06A2C" title="暖阳蜜糖"></button>
+                    <button onclick="setTheme('bean')" data-theme="bean" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#9C565C" title="豆沙温柔"></button>
+                    <button onclick="setTheme('matcha')" data-theme="matcha" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#5A7D4F" title="抹茶清新"></button>
+<button onclick="setTheme('dark')" data-theme="dark" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#23262B" title="暗夜墨黑"></button>
+                </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12 flex-grow w-full">
+        <div class="mb-8 md:mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">抽情绪卡</h1>
+            <p class="text-lg text-stone-600 leading-relaxed">不知道今天心里是什么，就让卡来说。免费抽卡，不用注册。点一下抽一张，十连抽一次抽十张；每张卡都是一种真实的情绪，带一句它常有的样子，和一个可以先试试的小做法。</p>
+        </div>
+
+        <p class="text-stone-600 leading-relaxed">卡池里一共 24 张卡：R 是日常情绪，SR 是心里卡住的情绪，SSR 是很难说出口的情绪。十连抽至少出一张 SR 以上。</p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-center"><div class="text-2xl font-bold text-sage" id="stDraws">0</div><div class="text-sm text-stone-500 mt-1">总抽数</div></div>
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-center"><div class="text-2xl font-bold text-sage" id="stOwned">0 / 24</div><div class="text-sm text-stone-500 mt-1">图鉴已收集</div></div>
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-center"><div class="text-2xl font-bold text-sage" id="stSsr">0</div><div class="text-sm text-stone-500 mt-1">SSR 数</div></div>
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 text-center"><div class="text-2xl font-bold text-sage" id="stSeen">0</div><div class="text-sm text-stone-500 mt-1">被看见</div></div>
+        </div>
+
+        <div class="flex gap-3 flex-wrap my-6">
+            <button id="draw1" type="button" class="bg-sage text-white px-8 py-3.5 rounded-xl font-bold text-lg hover:opacity-90 transition">抽一张</button>
+            <button id="draw10" type="button" class="bg-stone-800 text-white px-8 py-3.5 rounded-xl font-bold text-lg hover:opacity-90 transition">十连抽</button>
+        </div>
+        <p class="text-sm text-stone-500">免费，不用注册。抽到的卡自动收进下面的图鉴，存在你的浏览器里。</p>
+
+        <div id="drawResult" class="grid md:grid-cols-2 gap-4 my-6"></div>
+
+        <h2 class="text-2xl font-bold mt-10 mb-2">我的图鉴</h2>
+        <div class="h-2 bg-stone-100 rounded-full my-3 overflow-hidden"><div id="albumBar" class="h-full bg-sage rounded-full" style="width:0%"></div></div>
+        <p id="albumText" class="text-sm text-stone-500">还没抽到任何卡，先抽一张试试。</p>
+        <div id="albumGrid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5 my-4"></div>
+        <p><button id="resetBtn" type="button" class="bg-white border border-stone-200 px-5 py-2 rounded-lg text-stone-600 hover:text-sage transition">清空图鉴</button></p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-2">抽到的卡，想多聊聊？</h2>
+        <p class="text-stone-600 leading-relaxed">卡上的小做法只够应付当下。如果有句话憋在心里，不想跟人说，又不想自己一个人扛着，去<a href="toolkit.html#trash" class="text-sage font-medium hover:underline">情绪垃圾桶</a>写下来扔掉；想多了解自己现在的状态，去<a href="self-test.html" class="text-sage font-medium hover:underline">阿屿自测</a>花几分钟测一测。</p>
+
+        <h2 class="text-2xl font-bold mt-10 mb-2">常见问题</h2>
+        <h3 class="text-lg font-bold mt-4">抽情绪卡要钱吗？要注册吗？</h3>
+        <p class="text-stone-600 leading-relaxed">不要钱，也不用注册。点一下就能抽，抽到的卡存在你的浏览器里。</p>
+        <h3 class="text-lg font-bold mt-4">抽到的卡存在哪里？</h3>
+        <p class="text-stone-600 leading-relaxed">存在你这台设备浏览器的本地存储里。换设备、换浏览器，或者清掉浏览器数据，图鉴就会丢，需要重新抽。</p>
+        <h3 class="text-lg font-bold mt-4">稀有度是怎么分的？</h3>
+        <p class="text-stone-600 leading-relaxed">R 是日常情绪，抽到概率约 70%；SR 是心里卡住的情绪，约 25%；SSR 是很难说出口的情绪，约 5%。十连抽至少出一张 SR 以上。卡上的小做法只是一般性的建议，不是诊断。</p>
+
+        <p class="text-sm text-stone-400 mt-10 leading-relaxed">卡片只是一个提醒，不是诊断。卡上的小做法是一般性的建议，不能代替专业帮助。如果难受持续了很久，别硬扛，找专业的人聊聊。</p>
+        <p class="mt-6"><a href="index.html" class="text-sage font-medium hover:underline">← 回首页</a></p>
+    </main>
+
+    <script>
+        /* 主题切换（与工具箱页一致） */
+        const THEME_EMOJIS = {blue: '\uD83C\uDF19', honey: '\u2600\uFE0F', bean: '\uD83C\uDF38', matcha: '\uD83C\uDF43', dark: '\uD83C\uDF11'};
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            try { localStorage.setItem('mindisland-theme', theme); } catch(e) {}
+            document.querySelectorAll('.logo-emoji').forEach(el => { el.textContent = THEME_EMOJIS[theme] || '\uD83C\uDF19'; });
+            document.querySelectorAll('.theme-dot').forEach(d => {
+                d.classList.toggle('ring-2', d.dataset.theme === theme);
+                d.classList.toggle('ring-offset-2', d.dataset.theme === theme);
+            });
+        }
+        (function() {
+            let saved = 'blue';
+            try { saved = localStorage.getItem('mindisland-theme') || 'blue'; } catch(e) {}
+            setTheme(saved);
+        })();
+    </script>
+    <script>
+    /* 卡池：24 张。链接均为本站已有文章；小做法为一般性建议，不是诊断。 */
+    var CARDS = [
+    {id:1, name:"焦虑", rar:"R", line:"心里像揣了只兔子，坐也坐不住。", tip:"把最担心的那件事写下来，只写三行。", link:"post-real-anxiety.html"},
+    {id:2, name:"累", rar:"R", line:"不是没睡够，是心里一直绷着。", tip:"今晚什么都不补，先睡一觉。", link:"post-burnout.html"},
+    {id:3, name:"烦躁", rar:"R", line:"一点小事就能点着，点着了又后悔。", tip:"先离开现场五分钟，喝口水再回来。", link:"post-partner-annoyance.html"},
+    {id:4, name:"委屈", rar:"R", line:"明明没做错，却像自己错了。", tip:"把事情原样说给一个人听，不评判，只说发生了什么。", link:"post-one-cries-one-holds.html"},
+    {id:5, name:"难过", rar:"R", line:"眼泪在眼眶里打转，找不着出口。", tip:"允许自己难过一会儿，不用马上好起来。", link:"post-cant-cry.html"},
+    {id:6, name:"生气", rar:"R", line:"火一下子就上来了，话比脑子快。", tip:"开口之前，先数到十。", link:"post-mood-remote-control.html"},
+    {id:7, name:"失落", rar:"R", line:"盼了很久的事，没成。", tip:"先承认失落，再想下一步。", link:"post-emotion-accept.html"},
+    {id:8, name:"孤独", rar:"R", line:"人很多，心里还是空的。", tip:"给一个人发条消息，不用有事，就说想你了。", link:"post-few-friends.html"},
+    {id:9, name:"无助", rar:"R", line:"想帮忙，却不知道从哪下手。", tip:"把大问题拆成最小的一步，只做这一步。", link:"post-ask-for-help.html"},
+    {id:10, name:"紧张", rar:"R", line:"手心出汗，心跳得自己都听得见。", tip:"慢慢吸气四秒，呼气六秒，做三遍。", link:"post-somatic-anxiety.html"},
+    {id:11, name:"羞愧", rar:"R", line:"恨不得找个地缝钻进去。", tip:"这件事过去了，你不用一直罚自己。", link:"post-appearance-anxiety.html"},
+    {id:12, name:"内疚", rar:"R", line:"总觉得是自己没做好。", tip:"问一句：这件事，真的全是我的责任吗？", link:"post-self-esteem.html"},
+    {id:13, name:"冷战", rar:"SR", line:"话越来越少，家越来越安静。", tip:"先开一句口，不用道歉，先说“我在这儿”。", link:"post-cold-war-three-days.html"},
+    {id:14, name:"被比较", rar:"SR", line:"别人家的孩子，别人家的老公。", tip:"比较停不下来时，先问：我到底想要什么？", link:"post-self-esteem.html"},
+    {id:15, name:"顶嘴", rar:"SR", line:"他一顶嘴，你就觉得权威没了。", tip:"顶嘴不是坏事，是他在要一个说法。", link:"post-kid-cries-talks-back.html"},
+    {id:16, name:"手机停不下来", rar:"SR", line:"明知道该放下，手就是不听。", tip:"先定一个放下手机的时间，只定一个。", link:"post-teen-phone-dopamine.html"},
+    {id:17, name:"婆媳卡住", rar:"SR", line:"两边都是亲人，两边都不好得罪。", tip:"别逼他选边，先看清家里卡在哪。", link:"post-mother-in-law-husband.html"},
+    {id:18, name:"家务分工", rar:"SR", line:"你多做一点，他少做一点，账越算越气。", tip:"不按五五分，按时间算。", link:"post-split-housework.html"},
+    {id:19, name:"讨好", rar:"SR", line:"每句“没关系”，都在给自己扣分。", tip:"下一次，先说自己的真实想法。", link:"post-people-pleaser.html"},
+    {id:20, name:"内耗", rar:"SR", line:"脑子里两个声音吵了一天，什么都没干。", tip:"把纠结写下来，写完就放下。", link:"post-overthinking.html"},
+    {id:21, name:"不被看见", rar:"SSR", line:"做了很多，没人看见。", tip:"先看见自己做的事，写下来。", link:"post-emotion-accept.html"},
+    {id:22, name:"想逃离", rar:"SSR", line:"想走，又不知道能去哪。", tip:"先给自己留一个出口，哪怕只是下楼走一圈。", link:"post-dream-watching-self.html"},
+    {id:23, name:"害怕冲突", rar:"SSR", line:"宁可憋着，也不敢吵一架。", tip:"冲突不一定是坏事，说出来才有机会变好。", link:"post-argue-silence.html"},
+    {id:24, name:"自我怀疑", rar:"SSR", line:"别人都行，就我不行。", tip:"翻一翻自己做成的事，哪怕很小。", link:"post-self-esteem.html"}
+    ];
+    var RAR_NAME = {R:"日常", SR:"卡住", SSR:"难说出口"};
+    var RAR_W = {R:70, SR:25, SSR:5};
+    var KEY = "mindisland-emotion-gacha-v1";
+    var state = {owned:{}, draws:0, ssr:0};
+    try {
+      var saved = JSON.parse(localStorage.getItem(KEY) || "null");
+      if (saved && saved.owned) state = saved;
+    } catch(e) {}
+    function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} }
+    function pickOne(){
+      var r = Math.random() * 100, rar = "R";
+      if (r < RAR_W.SSR) rar = "SSR"; else if (r < RAR_W.SSR + RAR_W.SR) rar = "SR";
+      var pool = CARDS.filter(function(c){ return c.rar === rar; });
+      return pool[Math.floor(Math.random() * pool.length)];
+    }
+    function pill(c){
+      if (c.rar === "SR") return '<span class="text-xs font-semibold text-white px-3 py-1 rounded-full" style="background:#456179">' + c.rar + ' · ' + RAR_NAME[c.rar] + '</span>';
+      if (c.rar === "SSR") return '<span class="text-xs font-semibold text-white px-3 py-1 rounded-full" style="background:#C9A227">' + c.rar + ' · ' + RAR_NAME[c.rar] + '</span>';
+      return '<span class="text-xs font-semibold text-sage bg-sageLight px-3 py-1 rounded-full">' + c.rar + ' · ' + RAR_NAME[c.rar] + '</span>';
+    }
+    function cardHTML(c, n){
+      var border = c.rar === "SSR" ? ' style="border:2px solid #C9A227; box-shadow:0 0 0 3px rgba(201,162,39,.2), 0 6px 24px rgba(201,162,39,.25)"' : (c.rar === "SR" ? ' style="border:2px solid #456179"' : '');
+      return '<div class="ecard r-' + c.rar + ' bg-white p-6 rounded-2xl shadow-sm border border-stone-100"' + border + '>'
+        + pill(c)
+        + '<h3 class="text-2xl font-bold mt-3 mb-2">' + c.name + '</h3>'
+        + '<p class="text-stone-600 leading-relaxed">' + c.line + '</p>'
+        + '<p class="text-stone-600 leading-relaxed mt-3"><strong class="text-stone-800">先试试：</strong>' + c.tip + '</p>'
+        + '<p class="mt-4"><a href="' + c.link + '" class="text-sage font-medium hover:underline">去看看这篇 →</a></p>'
+        + (n > 1 ? '<p class="text-sm text-stone-400 mt-3">已拥有 × ' + n + '</p>' : '')
+        + '</div>';
+    }
+    function renderStats(){
+      var ownedCount = Object.keys(state.owned).length;
+      document.getElementById("stDraws").textContent = state.draws;
+      document.getElementById("stOwned").textContent = ownedCount + " / 24";
+      document.getElementById("stSsr").textContent = state.ssr;
+      document.getElementById("stSeen").textContent = state.draws + state.ssr * 10;
+      document.getElementById("albumBar").style.width = Math.round(ownedCount / 24 * 100) + "%";
+      document.getElementById("albumText").textContent = ownedCount === 0
+        ? "还没抽到任何卡，先抽一张试试。"
+        : "已收集 " + ownedCount + " / 24 张" + (ownedCount === 24 ? "，图鉴全齐了。" : "，继续抽，集齐 24 张。");
+    }
+    function renderAlbum(){
+      var grid = document.getElementById("albumGrid");
+      grid.innerHTML = CARDS.map(function(c){
+        var n = state.owned[c.id] || 0;
+        if (!n) return '<div class="bg-stone-50 border border-stone-100 rounded-xl p-3 text-center text-stone-400"><div class="text-xs font-semibold">' + c.rar + '</div><div class="font-bold mt-1">？</div><div class="text-xs mt-1">' + RAR_NAME[c.rar] + '</div></div>';
+        var extra = c.rar === "SSR" ? ' style="border-color:#C9A227; background:#FFFBEA"' : (c.rar === "SR" ? ' style="border-color:#456179; background:#E2EAF1"' : '');
+        return '<div class="bg-white border border-stone-200 rounded-xl p-3 text-center"' + extra + '><div class="text-xs font-semibold text-sage">' + c.rar + ' · ' + RAR_NAME[c.rar] + '</div><div class="font-bold mt-1">' + c.name + '</div><div class="text-xs text-stone-500 mt-1">× ' + n + '</div></div>';
+      }).join("");
+    }
+    function draw(n){
+      var out = [];
+      for (var i = 0; i < n; i++) out.push(pickOne());
+      if (n === 10 && !out.some(function(c){ return c.rar !== "R"; })) {
+        var srPool = CARDS.filter(function(c){ return c.rar === "SR" || c.rar === "SSR"; });
+        out[Math.floor(Math.random() * 10)] = srPool[Math.floor(Math.random() * srPool.length)];
+      }
+      out.forEach(function(c){
+        state.owned[c.id] = (state.owned[c.id] || 0) + 1;
+        state.draws++;
+        if (c.rar === "SSR") state.ssr++;
+      });
+      save();
+      var box = document.getElementById("drawResult");
+      box.innerHTML = out.map(function(c, i){
+        return '<div style="animation-delay:' + (i * 70) + 'ms">' + cardHTML(c, state.owned[c.id]) + '</div>';
+      }).join("");
+      renderStats();
+      renderAlbum();
+      document.getElementById("drawResult").scrollIntoView({behavior:"smooth", block:"nearest"});
+    }
+    document.getElementById("draw1").onclick = function(){ draw(1); };
+    document.getElementById("draw10").onclick = function(){ draw(10); };
+    document.getElementById("resetBtn").onclick = function(){
+      if (!confirm("确定要清空图鉴吗？抽到的卡都会丢掉。")) return;
+      state = {owned:{}, draws:0, ssr:0};
+      save();
+      document.getElementById("drawResult").innerHTML = "";
+      renderStats();
+      renderAlbum();
+    };
+    renderStats();
+    renderAlbum();
+    </script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进口化妆品批号查询：输入批号查生产日期 | 心屿 MindIsland</title>
+    <meta name="description" content="进口化妆品批号查询：输入品牌和瓶身批号，在线查生产日期。支持欧莱雅、兰蔻、雅诗兰黛、迪奥、资生堂等12个品牌，免费，不用下载。">
+    <link rel="canonical" href="https://www.790221.xyz/cosmetics-batch-check.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="进口化妆品批号查询：输入批号查生产日期 | 心屿 MindIsland">
+    <meta property="og:description" content="手里那瓶水乳、面霜是什么时候生产的？输入品牌和批号，一分钟查出来。支持12个主流进口品牌。">
+    <meta property="og:url" content="https://www.790221.xyz/cosmetics-batch-check.html">
+    <meta property="og:locale" content="zh_CN">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "进口化妆品批号查询",
+        "description": "输入品牌和瓶身批号，在线查进口化妆品生产日期。支持欧莱雅、兰蔻、雅诗兰黛、迪奥、资生堂等12个品牌。",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CNY"},
+        "url": "https://www.790221.xyz/cosmetics-batch-check.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.790221.xyz/"},
+            {"@type": "ListItem", "position": 2, "name": "自助工具箱", "item": "https://www.790221.xyz/toolkit.html"},
+            {"@type": "ListItem", "position": 3, "name": "进口化妆品批号查询"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "化妆品批号在哪里找？", "acceptedAnswer": {"@type": "Answer", "text": "批号一般印在瓶底、瓶身或外包装盒上，是一串字母加数字，比如 40Z701、A63。注意别把它和条形码下面的那串长数字搞混，条形码不是批号。"}},
+            {"@type": "Question", "name": "查出来的生产日期准吗？", "acceptedAnswer": {"@type": "Answer", "text": "批号规则是大家从有明确日期的瓶子反推出来的，品牌自己不公开解码方法，所以查出来的日期是估算，只能做参考，不能当成真假鉴定。香奈儿的批号里没有年份，只能估个大概月份。"}},
+            {"@type": "Question", "name": "生产日期过了三年，还能用吗？", "acceptedAnswer": {"@type": "Answer", "text": "大多数进口化妆品未开封保质期约3年，开封后按瓶身上的开盖标志来，变味、变色、分层了就别用了。拿不准的时候，问品牌客服最稳妥。"}}
+        ]
+    }
+    </script>
+    <link rel="stylesheet" href="tailwind-compiled.css">
+    <style>
+        :root, [data-theme="blue"] {
+            --bg-warm: #F7F9FB;
+            --sage: #456179;
+            --sage-light: #E2EAF1;
+            --ink: #25303A;
+        }
+        [data-theme="honey"] {
+            --bg-warm: #FDF9F2;
+            --sage: #B06A2C;
+            --sage-light: #F6E9D2;
+            --ink: #3A2E22;
+        }
+        [data-theme="bean"] {
+            --bg-warm: #FBF7F5;
+            --sage: #9C565C;
+            --sage-light: #F2E3E3;
+            --ink: #352A2C;
+        }
+        [data-theme="matcha"] {
+            --bg-warm: #F6FAF3;
+            --sage: #5A7D4F;
+            --sage-light: #E4EFE0;
+            --ink: #2A3328;
+        }
+        [data-theme="dark"] {
+            --bg-warm: #121417;
+            --sage: #8FB0CC;
+            --sage-light: #232B35;
+            --ink: #E8EBEE;
+        }
+        [data-theme="dark"] .bg-white { background-color: #1D2127; }
+        [data-theme="dark"] .bg-stone-100 { background-color: #1A1D21; }
+        [data-theme="dark"] .bg-stone-50 { background-color: #191C20; }
+        [data-theme="dark"] .text-stone-800 { color: #EDEFF2; }
+        [data-theme="dark"] .text-stone-700 { color: #D8DCE1; }
+        [data-theme="dark"] .text-stone-600 { color: #B7BEC6; }
+        [data-theme="dark"] .text-stone-500 { color: #98A1AA; }
+        [data-theme="dark"] .text-stone-400 { color: #7C858F; }
+        [data-theme="dark"] .border-stone-200 { border-color: #333A42; }
+        [data-theme="dark"] .border-stone-100 { border-color: #262B31; }
+        [data-theme="dark"] .border-stone-300 { border-color: #454E58; }
+        [data-theme="dark"] input, [data-theme="dark"] select { background-color: #1D2127; color: #E8EBEE; border-color: #454E58; }
+
+        body { background-color: var(--bg-warm); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+        @media (max-width: 768px) {
+            body { font-size: 17px; }
+            main { padding-left: 1rem; padding-right: 1rem; }
+            section { padding: 1.25rem !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 bg-bgWarm border-b border-stone-200">
+        <div class="max-w-5xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="index.html" class="text-3xl font-bold tracking-wider text-sage flex items-center gap-2">
+                <span class="logo-emoji">🌙</span> 心屿 MindIsland
+            </a>
+            <nav class="flex space-x-6 text-lg font-medium text-stone-600">
+                <a href="index.html" class="hover:text-sage transition">首页</a>
+                <a href="toolkit.html" class="hover:text-sage transition">自助工具箱</a>
+            </nav>
+            <div class="flex items-center gap-1.5 ml-3">
+                    <button onclick="setTheme('blue')" data-theme="blue" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#456179" title="雾蓝夜话"></button>
+                    <button onclick="setTheme('honey')" data-theme="honey" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#B06A2C" title="暖阳蜜糖"></button>
+                    <button onclick="setTheme('bean')" data-theme="bean" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#9C565C" title="豆沙温柔"></button>
+                    <button onclick="setTheme('matcha')" data-theme="matcha" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#5A7D4F" title="抹茶清新"></button>
+                    <button onclick="setTheme('dark')" data-theme="dark" class="theme-dot w-4 h-4 rounded-full border border-stone-300 hover:scale-110 transition" style="background:#23262B" title="暗夜墨黑"></button>
+                </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12 flex-grow w-full">
+        <div class="mb-8 md:mb-10">
+            <p class="text-sm font-semibold text-sage mb-2">心屿工具箱 · 免费在线查</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">进口化妆品批号查询</h1>
+            <p class="text-lg text-stone-600 leading-relaxed">手里那瓶水乳、面霜是什么时候生产的？进口化妆品的瓶身上一般不印日期，只有一串批号。选品牌、输批号，一分钟查出来。支持欧莱雅、兰蔻、雅诗兰黛、迪奥、资生堂等 12 个主流进口品牌，全程在你浏览器里算，不上传。</p>
+        </div>
+
+        <section class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+            <label class="block text-base font-bold mb-2" for="brand">品牌</label>
+            <select id="brand" class="w-full border border-stone-300 rounded-xl px-4 py-3 text-lg mb-5">
+                <option value="loreal">欧莱雅 L'Oréal</option>
+                <option value="lancome">兰蔻 Lancôme</option>
+                <option value="estee">雅诗兰黛 Estée Lauder</option>
+                <option value="clinique">倩碧 Clinique</option>
+                <option value="dior">迪奥 Dior</option>
+                <option value="chanel">香奈儿 Chanel</option>
+                <option value="shiseido">资生堂 Shiseido</option>
+                <option value="skii">SK-II</option>
+                <option value="kiehls">科颜氏 Kiehl's</option>
+                <option value="clarins">娇韵诗 Clarins</option>
+                <option value="ysl">圣罗兰 YSL</option>
+                <option value="armani">阿玛尼 Armani</option>
+            </select>
+            <label class="block text-base font-bold mb-2" for="code">批号</label>
+            <input id="code" type="text" placeholder="比如 40Z701、A63、1L01" autocomplete="off" autocapitalize="characters" spellcheck="false" class="w-full border border-stone-300 rounded-xl px-4 py-3 text-lg mb-5">
+            <button onclick="checkBatch()" class="w-full bg-sage text-white px-6 py-3 rounded-xl font-bold text-lg hover:opacity-90 transition">查生产日期 →</button>
+            <p class="text-sm text-stone-400 mt-3 leading-relaxed">批号在瓶底、瓶身或外包装盒上，别拿条形码下面的长数字来查，那个不是批号。</p>
+            <div id="result" class="hidden mt-6 p-6 rounded-xl bg-stone-50 border border-stone-100"></div>
+            <div id="error" class="hidden mt-6 p-6 rounded-xl bg-red-50 border border-red-100 text-red-700"></div>
+        </section>
+
+        <section class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 mt-6 md:mt-8">
+            <h2 class="text-2xl font-bold mb-4">支持的品牌</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-stone-600">
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">欧莱雅</strong><br><span class="text-sm">6–7 位，第 3 位是年份字母</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">兰蔻</strong><br><span class="text-sm">同欧莱雅规则</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">科颜氏</strong><br><span class="text-sm">同欧莱雅规则</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">圣罗兰</strong><br><span class="text-sm">同欧莱雅规则</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">阿玛尼</strong><br><span class="text-sm">同欧莱雅规则</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">雅诗兰黛</strong><br><span class="text-sm">3 位，第 2 位是月份</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">倩碧</strong><br><span class="text-sm">同雅诗兰黛规则</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">迪奥</strong><br><span class="text-sm">4 位，第 1 位是年份数字</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">资生堂</strong><br><span class="text-sm">6 位，第 2–4 位是年内第几天</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">SK-II</strong><br><span class="text-sm">10 位数字，第 2–4 位是年内第几天</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">娇韵诗</strong><br><span class="text-sm">7 位，第 3–4 位是 ISO 周数</span></div>
+                <div class="border border-stone-100 rounded-xl px-4 py-3"><strong class="text-stone-800">香奈儿</strong><br><span class="text-sm">4 位数字，只能估大概月份</span></div>
+            </div>
+        </section>
+
+        <section class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 mt-6 md:mt-8">
+            <h2 class="text-2xl font-bold mb-4">常见问题</h2>
+            <h3 class="text-lg font-bold mt-4 mb-1">化妆品批号在哪里找？</h3>
+            <p class="text-stone-600 leading-relaxed">批号一般印在瓶底、瓶身或外包装盒上，是一串字母加数字，比如 40Z701、A63。注意别把它和条形码下面的那串长数字搞混，条形码不是批号。</p>
+            <h3 class="text-lg font-bold mt-4 mb-1">查出来的生产日期准吗？</h3>
+            <p class="text-stone-600 leading-relaxed">批号规则是大家从有明确日期的瓶子反推出来的，品牌自己不公开解码方法，所以查出来的日期是估算，只能做参考，不能当成真假鉴定。香奈儿的批号里没有年份，只能估个大概月份。</p>
+            <h3 class="text-lg font-bold mt-4 mb-1">生产日期过了三年，还能用吗？</h3>
+            <p class="text-stone-600 leading-relaxed">大多数进口化妆品未开封保质期约 3 年，开封后按瓶身上的开盖标志来，变味、变色、分层了就别用了。拿不准的时候，问品牌客服最稳妥。</p>
+        </section>
+
+        <p class="text-sm text-stone-400 mt-10 leading-relaxed">这个工具只帮你把批号翻译成大概的生产日期，不做真假鉴定，也不能代替品牌官方的查询。结果仅供参考。</p>
+        <p class="mt-6"><a href="index.html" class="text-sage font-medium hover:underline">← 回首页</a></p>
+    </main>
+
+    <script>
+        /* 主题切换（与工具箱页一致） */
+        const THEME_EMOJIS = {blue: '\uD83C\uDF19', honey: '\u2600\uFE0F', bean: '\uD83C\uDF38', matcha: '\uD83C\uDF43', dark: '\uD83C\uDF11'};
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            try { localStorage.setItem('mindisland-theme', theme); } catch(e) {}
+            document.querySelectorAll('.logo-emoji').forEach(el => { el.textContent = THEME_EMOJIS[theme] || '\uD83C\uDF19'; });
+            document.querySelectorAll('.theme-dot').forEach(d => {
+                d.classList.toggle('ring-2', d.dataset.theme === theme);
+                d.classList.toggle('ring-offset-2', d.dataset.theme === theme);
+            });
+        }
+        (function() {
+            let saved = 'blue';
+            try { saved = localStorage.getItem('mindisland-theme') || 'blue'; } catch(e) {}
+            setTheme(saved);
+        })();
+    </script>
+    <script>
+        /* 进口化妆品批号解码：规则来自已核实的品牌批号研究（2026-11-09），
+           品牌不公开解码方法，所有结果均为估算，仅供参考。 */
+        const MONTH_CN = ['', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+        const LOREAL_YEAR = {H:2011, J:2012, K:2013, L:2014, M:2015, N:2016, P:2017, R:2018, S:2019, T:2020, U:2021, W:2022, X:2023, Y:2024, Z:2025, A:2026};
+        const LOREAL_MONTH = {'1':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'0':10,'O':10,'N':11,'D':12};
+        const EL_MONTH = {'1':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'A':10,'B':11,'C':12};
+        const DIOR_AM = {A:1,B:2,C:3,D:4,E:5,F:6,G:7,H:8,J:9,K:10,L:11,M:12};
+        const DIOR_NZ = {N:1,P:2,Q:3,R:4,S:5,T:6,U:7,V:8,W:9,X:10,Y:11,Z:12};
+
+        function recentYearEndingIn(d) {
+            const now = new Date().getFullYear();
+            let y = now;
+            while (y % 10 !== d) y--;
+            return y;
+        }
+        function isLeap(y) { return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0; }
+        function julianToDate(year, day) {
+            const max = isLeap(year) ? 366 : 365;
+            if (day < 1 || day > max) return null;
+            const d = new Date(year, 0, 1);
+            d.setDate(day);
+            return d;
+        }
+        function isoWeekMonday(year, week) {
+            const jan4 = new Date(year, 0, 4);
+            const dow = (jan4.getDay() + 6) % 7;
+            const monday = new Date(jan4);
+            monday.setDate(jan4.getDate() - dow);
+            const d = new Date(monday);
+            d.setDate(monday.getDate() + (week - 1) * 7);
+            return d;
+        }
+        function fmtMonth(y, m) { return y + '年' + m + '月'; }
+        function fmtDate(d) { return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+        function decodeLoreal(code) {
+            if (code.length < 4 || code.length > 7) return {error: '欧莱雅系批号一般是 6–7 位，比如 40Z701。你输的位数不对，再核对一下瓶身。'};
+            const yLetter = code[2], mChar = code[3];
+            if (!(yLetter in LOREAL_YEAR)) return {error: '第 3 位字母 ' + yLetter + ' 不在年份表里，可能是输错了，或者是美产的特殊格式，暂不支持。'};
+            if (!(mChar in LOREAL_MONTH)) return {error: '第 4 位 ' + mChar + ' 不是有效的月份字符，再核对一下批号。'};
+            let year = LOREAL_YEAR[yLetter];
+            const now = new Date().getFullYear();
+            let note = '';
+            if (year > now) { year -= 22; note = '按 22 年一个循环往前推了一轮，算的是上一轮的同字母年份。'; }
+            return {dateText: fmtMonth(year, LOREAL_MONTH[mChar]), explain: '第 3 位字母 ' + yLetter + ' = ' + year + '年，第 4 位 ' + mChar + ' = ' + MONTH_CN[LOREAL_MONTH[mChar]] + '。', note: note};
+        }
+        function decodeEstee(code) {
+            if (code.length !== 3) return {error: '雅诗兰黛系批号是 3 位，比如 A63。你输的位数不对，再核对一下瓶身。'};
+            const mChar = code[1], yDigit = code[2];
+            if (!(mChar in EL_MONTH)) return {error: '第 2 位 ' + mChar + ' 不是有效的月份字符，再核对一下批号。'};
+            if (!/[0-9]/.test(yDigit)) return {error: '第 3 位应该是数字（年份末位），再核对一下批号。'};
+            const year = recentYearEndingIn(parseInt(yDigit, 10));
+            return {dateText: fmtMonth(year, EL_MONTH[mChar]), explain: '第 2 位 ' + mChar + ' = ' + MONTH_CN[EL_MONTH[mChar]] + '，第 3 位数字 ' + yDigit + ' = ' + year + '年。', note: '年份只看末位数字，按最近十年推算；如果是很多年前买的，年份可能要往前推十年。'};
+        }
+        function decodeDior(code) {
+            let c = code;
+            if (c.length === 6 && /^[A-Z]{2}/.test(c)) c = c.slice(2);
+            if (c.length !== 4) return {error: '迪奥批号是 4 位，比如 1L01（前面如有 2 个字母的厂家前缀可以去掉再查）。你输的位数不对。'};
+            const yDigit = c[0], mLetter = c[1];
+            if (!/[0-9]/.test(yDigit)) return {error: '第 1 位应该是数字（年份末位），再核对一下批号。'};
+            const now = new Date().getFullYear();
+            if (mLetter in DIOR_AM) {
+                const d = parseInt(yDigit, 10);
+                let year = null;
+                for (let y = now; y >= 1998; y--) {
+                    if (y % 10 === d && ((y >= 2018 && y <= 2027) || (y >= 1998 && y <= 2007))) { year = y; break; }
+                }
+                if (year === null) return {error: '这个组合推不出年份，再核对一下批号。'};
+                return {dateText: fmtMonth(year, DIOR_AM[mLetter]), explain: '第 1 位数字 ' + yDigit + ' = ' + year + '年，第 2 位字母 ' + mLetter + ' = ' + MONTH_CN[DIOR_AM[mLetter]] + '。', note: '迪奥的月份字母分两个年代表，这里按字母所在的年代表推算。'};
+            }
+            if (mLetter in DIOR_NZ) {
+                const d = parseInt(yDigit, 10);
+                let year = null;
+                for (let y = 2017; y >= 2008; y--) { if (y % 10 === d) { year = y; break; } }
+                if (year === null) return {error: '这个组合推不出年份，再核对一下批号。'};
+                return {dateText: fmtMonth(year, DIOR_NZ[mLetter]), explain: '第 1 位数字 ' + yDigit + ' = ' + year + '年，第 2 位字母 ' + mLetter + ' = ' + MONTH_CN[DIOR_NZ[mLetter]] + '（2008–2017 年代的月份表）。', note: '2008–2017 年代的月份表缺少独立的日期佐证，结果仅供参考。'};
+            }
+            return {error: '第 2 位字母 ' + mLetter + ' 不在迪奥的月份表里，再核对一下批号。'};
+        }
+        function decodeShiseido(code) {
+            if (code.length !== 6) return {error: '资生堂批号一般是 6 位，比如 1211T1。你输的位数不对，再核对一下瓶身。'};
+            if (!/^[0-9]/.test(code)) return {error: '第 1 位应该是数字（年份末位），再核对一下批号。'};
+            const day = parseInt(code.slice(1, 4), 10);
+            if (isNaN(day)) return {error: '第 2–4 位应该是 3 位数字（年内第几天），再核对一下批号。'};
+            const year = recentYearEndingIn(parseInt(code[0], 10));
+            const d = julianToDate(year, day);
+            if (!d) return {error: '第 2–4 位的天数 ' + day + ' 超出了一年的天数，再核对一下批号。'};
+            return {dateText: fmtDate(d), explain: '第 1 位数字 ' + code[0] + ' = ' + year + '年，第 2–4 位 ' + code.slice(1, 4) + ' = 当年第 ' + day + ' 天。', note: '年份只看末位数字，按最近十年推算；如果是很多年前买的，年份可能要往前推十年。'};
+        }
+        function decodeSkii(code) {
+            if (/[A-Z]/.test(code)) return {error: '这串批号里有字母，新的字母格式暂不支持，别硬套 10 位数字的算法。'};
+            if (code.length !== 10 || !/^[0-9]{10}$/.test(code)) return {error: 'SK-II 批号是 10 位纯数字，比如 2220211800。你输的格式不对，再核对一下瓶身。'};
+            const day = parseInt(code.slice(1, 4), 10);
+            const year = recentYearEndingIn(parseInt(code[0], 10));
+            const d = julianToDate(year, day);
+            if (!d) return {error: '第 2–4 位的天数 ' + day + ' 超出了一年的天数，再核对一下批号。'};
+            return {dateText: fmtDate(d), explain: '第 1 位数字 ' + code[0] + ' = ' + year + '年，第 2–4 位 ' + code.slice(1, 4) + ' = 当年第 ' + day + ' 天。', note: '年份只看末位数字，按最近十年推算；如果是很多年前买的，年份可能要往前推十年。'};
+        }
+        function decodeClarins(code) {
+            if (code.length !== 7) return {error: '娇韵诗批号一般是 7 位，比如 0144080。你输的位数不对，再核对一下瓶身。'};
+            const yDigit = code[1], week = parseInt(code.slice(2, 4), 10);
+            if (!/[0-9]/.test(yDigit)) return {error: '第 2 位应该是数字（年份末位），再核对一下批号。'};
+            if (isNaN(week) || week < 1 || week > 53) return {error: '第 3–4 位应该是 01–52 的周数，再核对一下批号。'};
+            const year = recentYearEndingIn(parseInt(yDigit, 10));
+            const d = isoWeekMonday(year, week);
+            return {dateText: fmtDate(d), explain: '第 2 位数字 ' + yDigit + ' = ' + year + '年，第 3–4 位 ' + code.slice(2, 4) + ' = 当年第 ' + week + ' 周，生产日期取当周的周一。', note: '年份只看末位数字，按最近十年推算；如果是很多年前买的，年份可能要往前推十年。'};
+        }
+        function decodeChanel(code) {
+            if (code.length !== 4 || !/^[0-9]{4}$/.test(code)) return {error: '香奈儿批号是 4 位纯数字，比如 5562。你输的格式不对，再核对一下瓶身。'};
+            const c = parseInt(code.slice(0, 2), 10);
+            // 香奈儿批号没有年份，前两位是月份计数，约 8 年一个循环。
+            // 主结果按最近的年代估：2016 年重置后 00 = 2016年1月；括号里给更早年代的另一种可能。
+            const recent = new Date(2016, 0 + c, 1);
+            const old = new Date(2012, 11 + (c - 60), 1);
+            const recentText = fmtMonth(recent.getFullYear(), recent.getMonth() + 1);
+            const oldText = fmtMonth(old.getFullYear(), old.getMonth() + 1);
+            return {dateText: recentText, estimate: true, estimateLabel: '估算，仅供参考', explain: '香奈儿批号里没有年份，前两位只是月份计数。按 2016 年重置后的计数（00 = 2016 年 1 月）估算，约 ' + recentText + '。', note: '同一批号还可能对应更早的年代：按 2012 年前的锚点（60 = 2012 年 12 月）约 ' + oldText + '。香奈儿的批号定不出确切日期，这个结果只能做参考；想确认可以问香奈儿客服。'};
+        }
+
+        const DECODERS = {loreal: decodeLoreal, lancome: decodeLoreal, kiehls: decodeLoreal, ysl: decodeLoreal, armani: decodeLoreal, estee: decodeEstee, clinique: decodeEstee, dior: decodeDior, chanel: decodeChanel, shiseido: decodeShiseido, skii: decodeSkii, clarins: decodeClarins};
+
+        function checkBatch() {
+            const brand = document.getElementById('brand').value;
+            const brandName = document.getElementById('brand').selectedOptions[0].textContent;
+            const raw = document.getElementById('code').value.trim().toUpperCase().replace(/[\s-]/g, '');
+            const resultEl = document.getElementById('result');
+            const errorEl = document.getElementById('error');
+            resultEl.classList.add('hidden');
+            errorEl.classList.add('hidden');
+            if (!raw) {
+                errorEl.textContent = '先输入批号，再点查询。';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            const r = DECODERS[brand](raw);
+            if (r.error) {
+                errorEl.textContent = r.error;
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            const tag = r.estimate ? '<span class="text-xs font-semibold text-sage bg-sageLight px-3 py-1 rounded-full">' + (r.estimateLabel || '估算，仅供参考') + '</span>' : '<span class="text-xs font-semibold text-sage bg-sageLight px-3 py-1 rounded-full">估算，仅供参考</span>';
+            resultEl.innerHTML = tag +
+                '<p class="text-lg mt-3"><strong>' + brandName + '</strong> · 批号 <strong>' + raw + '</strong></p>' +
+                '<p class="text-3xl font-bold mt-2">生产日期约 ' + r.dateText + '</p>' +
+                '<p class="text-stone-600 mt-3 leading-relaxed">' + r.explain + '</p>' +
+                (r.note ? '<p class="text-stone-500 mt-2 leading-relaxed">' + r.note + '</p>' : '') +
+                '<p class="text-stone-500 mt-3 leading-relaxed">大多数进口化妆品未开封保质期约 3 年，仅供参考；开封后按瓶身标志使用，变味、变色就别用了。</p>';
+            resultEl.classList.remove('hidden');
+        }
+        document.getElementById('code').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkBatch();
+        });
+    </script>
+</body>
+</html>
